@@ -5,13 +5,13 @@ package com.kisen.rkt;
  * email: kisenhuang@163.com.
  */
 
-public class RKTException extends RuntimeException {
+class RKTException extends RuntimeException {
 
-    public RKTException(String message) {
+    RKTException(String message) {
         super(message);
     }
 
-    public RKTException(String message, Throwable cause) {
+    RKTException(String message, Throwable cause) {
         super(message, cause);
     }
 }
