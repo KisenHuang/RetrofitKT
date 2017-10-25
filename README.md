@@ -1,8 +1,9 @@
 # RetrofitKT
 A Demo about simplify use of  the Retrofit.
 
-##说明:
-简单封装了Retrofit，实现链式变成，兼容其他插件（例如rxjava，gson等）。
+## 说明:
+简单封装了Retrofit，实现链式编程，兼容其他插件（例如rxjava，gson等）。
+通过回调返回Retrofit创建的Service对象，不增加程序负担。
 例如：
 
     interface MainService {
