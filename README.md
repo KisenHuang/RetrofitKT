@@ -3,7 +3,8 @@ A Demo about simplify use of  the Retrofit.
 
 ## 说明:
 简单封装了Retrofit，实现链式编程，兼容其他插件（例如rxjava，gson等）。
-通过回调返回Retrofit创建的Service对象，不增加程序负担。
+Retrofit创建的Service对象之后，通过使用回调的方式调用方法返回对应方法的返回对象。
+没有注入代码，没有使用反射。不增加程序负担。
 例如：
 
     interface MainService {
