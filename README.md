@@ -10,7 +10,18 @@ A Demo about simplify use of  the Retrofit.
         Call<String> searchRetrofit(@Path("str") String str);
     }
 
-    ------------
+    Callback<String> callback = new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                String body = response.body();
+                webView.loadDataWithBaseURL("", body, "text/html", "UTF-8", "");
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t)
+            }
+        };
+
 方式一：
 
     //全局配置
@@ -22,16 +33,7 @@ A Demo about simplify use of  the Retrofit.
             .build("http://wwww.baidu.com/")
             .service(MainService.class)
             .method("searchRetrofit", "Retrofit")
-            .obtain(new BaseCallback<>(new Callback<String>() {
-                @Override
-                public void onResponse(Call<String> call, Response<String> response) {
-                    String body = response.body();
-                    webView.loadDataWithBaseURL("", body, "text/html", "UTF-8", "");
-
-                @Override
-                public void onFailure(Call<String> call, Throwable t)
-                }
-            }));
+            .obtain(new BaseCallback<>(callback));
 
 方式二：
 
@@ -41,14 +43,4 @@ A Demo about simplify use of  the Retrofit.
             .build("http://wwww.baidu.com/")
             .service(MainService.class)
             .method("searchRetrofit", "Retrofit")
-            .obtain(new BaseCallback<>(new Callback<String>() {
-                @Override
-                public void onResponse(Call<String> call, Response<String> response) {
-                    String body = response.body();
-                    webView.loadDataWithBaseURL("", body, "text/html", "UTF-8", "");
-                }
-
-                @Override
-                public void onFailure(Call<String> call, Throwable t)
-                }
-            }));
+            .obtain(new BaseCallback<>(callback));
